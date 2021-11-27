@@ -33,5 +33,16 @@ Route::get('/produtos2', 'ProdutoControlador@index')
  // Aqui é referente a linha 16 do construtor ProdutoControlador
  // Para redirecionar, após logar, basta ir no controlador de login e alterarar
  // a variável: redirectTo para onde eu quero encaminhar após o login que no caso é produtos2
- Route::get('/produtos', 'ProdutoControlador@index');
+ //Route::get('/produtos', 'ProdutoControlador@index');
+
+ // Aqui trata a parte de verificar se o usuário tá logado ou não.
+ // Sem usar middleware, mas sim usando a class Auth no controller
+ //Route::get('/departamentos', 'DepartamentoControlador@index');
+
+ // Agora é verificar se está logado dentro de uma view. Usando o @auth
+ // Ele só mostra o que tá dentro dele se estiver logado
+ // o @guest é usado quando não está logado
+ Route::get('/usuario', function() {
+     return view('usuario');
+ });
 
